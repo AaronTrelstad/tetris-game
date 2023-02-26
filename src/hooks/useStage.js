@@ -4,7 +4,6 @@ import { createStage } from '../gameHelpers';
 export const useStage = (player, resetPlayer) => {
     const [stage, setStage] = useState(createStage());
     const [rowsCleared, setRowsCleared] = useState(0);
-
     useEffect(() => {
         setRowsCleared(0);
 
@@ -17,11 +16,11 @@ export const useStage = (player, resetPlayer) => {
                 }
                 ack.push(row);
                 return ack;
-            }, [])
+            }, []);
 
         const updateStage = prevStage => {
             const newStage = prevStage.map(row =>
-                    row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell))
+                    row.map(cell => (cell[1] === "clear" ? [0, 'clear'] : cell))
             );
 
             player.tetromino.forEach((row, y) => {
@@ -34,12 +33,10 @@ export const useStage = (player, resetPlayer) => {
                     }
                 });
             });
-
             if (player.collided) {
                 resetPlayer();
                 return sweepRows(newStage);
             }
-
 
             return newStage;
         };
