@@ -34,10 +34,12 @@ export const useStage = (player, resetPlayer) => {
                     }
                 });
             });
+
             if (player.collided) {
                 resetPlayer();
                 return sweepRows(newStage);
             }
+
 
             return newStage;
         };

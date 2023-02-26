@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+
 import { createStage, checkCollision } from '../gameHelpers';
+
 
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
@@ -16,12 +18,14 @@ const Tetris = () => {
     const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
     const [stage, setStage] = useStage(player, resetPlayer);
 
+
     console.log('re-render');
 
     const movePlayer = dir => {
         if (!checkCollision(player, stage, {x:dir, y:0})) {
             updatePlayerPos({ x: dir, y: 0});
         }
+
     }
 
     const startGame = () => {
@@ -59,6 +63,7 @@ const Tetris = () => {
                 playerRotate(stage, 2);
             }
         }
+
     }
 
     return (
