@@ -10,13 +10,13 @@ export const usePlayer = () => {
         collided: false,
     });
 
-    const rotate = (matrix, dir) => {
-        const rotatedTetro = matrix.map((_, index) => matrix.map(col => col[index]),);
-        if ( dir > 0) return rotatedTetro.map(row => row.reverse());
-        return rotatedTetro.reverse();
+    function rotate(matrix, dir) {
+        const mtrx = matrix.map((_, index) => matrix.map(col => col[index]),);
+        if ( dir > 0) return mtrx.map(row => row.reverse());
+        return mtrx.reverse();
     };
 
-    const playerRotate = (stage, dir) => {
+    function playerRotate(stage, dir) {
         const clonedPlayer = JSON.parse(JSON.stringify(player));
         clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir);
 
