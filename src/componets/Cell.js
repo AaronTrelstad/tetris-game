@@ -8,5 +8,6 @@ const Cell = ({ type }) => (
     </StyledCell>
 );
 
+
 export default React.memo(Cell);
 
