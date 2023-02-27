@@ -36,6 +36,7 @@ const Tetris = () => {
         }
     };
 
+
     const startGame = () => {
         setStage(createStage());
         setDropTime(1000);
@@ -62,6 +63,7 @@ const Tetris = () => {
             updatePlayerPos({x:0, y:0, collided: true});
         }
     };
+
 
     const dropPlayer = () => {
         setDropTime(null);
